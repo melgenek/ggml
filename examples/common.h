@@ -4,6 +4,7 @@
 
 #include <string>
 #include <map>
+#include <unordered_map>
 #include <vector>
 #include <random>
 #include <thread>
@@ -16,15 +17,15 @@
 
 struct gpt_params {
     int32_t seed      = -1; // RNG seed
-    int32_t n_threads = std::min(4, (int32_t) std::thread::hardware_concurrency());
-    int32_t n_predict = 200; // new tokens to predict
+    uint32_t n_threads = std::min(4, (int32_t) std::thread::hardware_concurrency());
+    uint32_t n_predict = 200; // new tokens to predict
 
     // sampling parameters
-    int32_t top_k = 40;
+    uint32_t top_k = 40;
     float   top_p = 0.9f;
     float   temp  = 0.9f;
 
-    int32_t n_batch = 8; // batch size for prompt processing
+    uint32_t n_batch = 8; // batch size for prompt processing
 
     std::string model = "models/gpt-2-117M/ggml-model.bin"; // model path
     std::string prompt;
@@ -51,15 +52,15 @@ struct gpt_vocab {
     using id    = int32_t;
     using token = std::string;
 
-    std::map<token, id> token_to_id;
-    std::map<id, token> id_to_token;
+    std::unordered_map<token, id> token_to_id;
+    std::unordered_map<id, token> id_to_token;
     std::vector<std::string> special_tokens;
 
     void add_special_token(const std::string &token);
 };
 
 // poor-man's JSON parsing
-std::map<std::string, int32_t> json_parse(const std::string & fname);
+std::unordered_map<std::string, int32_t> json_parse(const std::string & fname);
 
 // split text into tokens
 //

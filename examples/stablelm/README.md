@@ -32,10 +32,10 @@ stablelm_model_load: n_head  = 32
 stablelm_model_load: n_layer = 16
 stablelm_model_load: n_rot   = 32
 stablelm_model_load: ftype   = 1
-stablelm_model_load: ggml ctx size = 10011.10 MB
+stablelm_model_load: ggml ctx lock_size = 10011.10 MB
 stablelm_model_load: memory_size =  2048.00 MB, n_mem = 65536
 stablelm_model_load: ................................ done
-stablelm_model_load: model size =  6939.28 MB / num tensors = 260
+stablelm_model_load: model lock_size =  6939.28 MB / num tensors = 260
 main: number of tokens in prompt = 7
 main: token[0] =     42, I
 main: token[1] =   2868,  believe
@@ -74,10 +74,10 @@ stablelm_model_load: n_head  = 32
 stablelm_model_load: n_layer = 16
 stablelm_model_load: n_rot   = 32
 stablelm_model_load: ftype   = 6
-stablelm_model_load: ggml ctx size = 5676.10 MB
+stablelm_model_load: ggml ctx lock_size = 5676.10 MB
 stablelm_model_load: memory_size =  1024.00 MB, n_mem = 65536
 stablelm_model_load: ........................ done
-stablelm_model_load: model size =  2604.28 MB / num tensors = 196
+stablelm_model_load: model lock_size =  2604.28 MB / num tensors = 196
 main: number of tokens in prompt = 7
 main: token[0] =     42, I
 main: token[1] =   2868,  believe

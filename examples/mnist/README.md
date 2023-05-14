@@ -53,7 +53,7 @@ For more information, checkout the corresponding programs in the [examples](exam
 ```
 $  ./bin/mnist ./models/mnist/ggml-model-f32.bin ../examples/mnist/models/mnist/t10k-images.idx3-ubyte
 mnist_model_load: loading model from './models/mnist/ggml-model-f32.bin'
-mnist_model_load: ggml ctx size =   1.52 MB
+mnist_model_load: ggml ctx lock_size =   1.52 MB
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _

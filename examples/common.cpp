@@ -101,8 +101,8 @@ std::string replace(const std::string & s, const std::string & from, const std::
     return result;
 }
 
-std::map<std::string, int32_t> json_parse(const std::string & fname) {
-    std::map<std::string, int32_t> result;
+std::unordered_map<std::string, int32_t> json_parse(const std::string & fname) {
+    std::unordered_map<std::string, int32_t> result;
 
     // read file into string
     std::string json;

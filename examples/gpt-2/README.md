@@ -42,7 +42,7 @@ options:
   --top_k N             top-k sampling (default: 40)
   --top_p N             top-p sampling (default: 0.9)
   --temp N              temperature (default: 1.0)
-  -b N, --batch_size N  batch size for prompt processing (default: 8)
+  -b N, --batch_size N  batch lock_size for prompt processing (default: 8)
   -m FNAME, --model FNAME
                         model path (default: models/gpt-2-117M/ggml-model.bin)
 
@@ -54,9 +54,9 @@ gpt2_model_load: n_embd  = 768
 gpt2_model_load: n_head  = 12
 gpt2_model_load: n_layer = 12
 gpt2_model_load: f16     = 1
-gpt2_model_load: ggml ctx size = 311.12 MB
-gpt2_model_load: memory size =    72.00 MB, n_mem = 12288
-gpt2_model_load: model size  =   239.08 MB
+gpt2_model_load: ggml ctx lock_size = 311.12 MB
+gpt2_model_load: memory lock_size =    72.00 MB, n_mem = 12288
+gpt2_model_load: model lock_size  =   239.08 MB
 main: number of tokens in prompt = 1
 
 So this is going to be the end of the line for us.

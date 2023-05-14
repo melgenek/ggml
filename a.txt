@@ -1,0 +1,22 @@
+time ./build/bin/gpt-j -m models/ggml-gpt4all-j-v1.3-groovy.bin -n 10 -t 12 -p "I want you to act as a naming consultant for new companies. What is a good name for a company that makes colorful socks?"
+time ./release/bin/gpt-j -m models/ggml-gpt4all-j-v1.3-groovy.bin -n 10 -t 12 -p "I want you to act as a naming consultant for new companies. What is a good name for a company that makes colorful socks?"
+
+time ./release/bin/gpt-j -m models/ggml-gpt4all-j-v1.3-groovy.bin -n 1 -t 12 -p "Give the antonym of every input\nWord: happy\nAntonym: sad\nWord: tall\nAntonym: short\nWord: energetic\nAntonym: lethargic\nWord: sunny\nAntonym: gloomy\nWord: windy\nAntonym: calm\nWord: big\nAntonym:"
+time ./release/bin/gpt-j -m models/ggml-gpt4all-j-v1.3-groovy.bin -n 100 -t 12 -p "Please write a bash script that prints 'Hello World' to the console."
+
+main: seed = 1684075950
+gptj_model_load: loading model from 'models/ggml-gpt4all-j-v1.3-groovy.bin' - please wait ...
+gptj_model_load: n_vocab = 50400
+gptj_model_load: n_ctx   = 2048
+gptj_model_load: n_embd  = 4096
+gptj_model_load: n_head  = 16
+gptj_model_load: n_layer = 28
+gptj_model_load: n_rot   = 64
+gptj_model_load: ftype   = 2
+gptj_model_load: ggml ctx size = 4505.45 MB
+gptj_model_load: memory_size =   896.00 MB, n_mem = 57344
+gptj_model_load: ................................... done
+gptj_model_load: model size =  3609.38 MB / num tensors = 285
+main: number of tokens in prompt = 26
+
+

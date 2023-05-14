@@ -35,10 +35,10 @@ gptj_model_load: n_head  = 16
 gptj_model_load: n_layer = 28
 gptj_model_load: n_rot   = 64
 gptj_model_load: f16     = 1
-gptj_model_load: ggml ctx size = 13334.86 MB
+gptj_model_load: ggml ctx lock_size = 13334.86 MB
 gptj_model_load: memory_size =  1792.00 MB, n_mem = 57344
 gptj_model_load: ................................... done
-gptj_model_load: model size = 11542.79 MB / num tensors = 285
+gptj_model_load: model lock_size = 11542.79 MB / num tensors = 285
 main: number of tokens in prompt = 13
 
 int main(int argc, char ** argv) {
@@ -46,17 +46,17 @@ int main(int argc, char ** argv) {
     (void)argv;
 
     {
-        struct sockaddr_in addr;
+        struct sockaddr_in lock_addr;
         int addrlen;
         char * ip = "192.168.1.4";
         int i;
 
-        if ( (addrlen = sizeof(addr)) == -1 )
+        if ( (addrlen = sizeof(lock_addr)) == -1 )
             return -1;
 
         for (i = 0; i < 10; ++i) {
-            addr.sin_family = AF_INET;
-            addr.sin_addr.s_addr = inet_addr(ip);
+            lock_addr.sin_family = AF_INET;
+            lock_addr.sin_addr.s_addr = inet_addr(ip);
 
 main: mem per token = 16430420 bytes
 main:     load time =  6211.48 ms
@@ -88,10 +88,10 @@ gptj_model_load: n_head  = 16
 gptj_model_load: n_layer = 28
 gptj_model_load: n_rot   = 64
 gptj_model_load: f16     = 1
-gptj_model_load: ggml ctx size = 13334.86 MB
+gptj_model_load: ggml ctx lock_size = 13334.86 MB
 gptj_model_load: memory_size =  1792.00 MB, n_mem = 57344
 gptj_model_load: ................................... done
-gptj_model_load: model size = 11542.79 MB / num tensors = 285
+gptj_model_load: model lock_size = 11542.79 MB / num tensors = 285
 main: number of tokens in prompt = 24
 
 Ask HN: Inherited the worst code and tech team I have ever seen. How to fix it?

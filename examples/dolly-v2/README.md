@@ -36,10 +36,10 @@ dollyv2_model_load: n_head  = 32
 dollyv2_model_load: n_layer = 32
 dollyv2_model_load: n_rot   = 20
 dollyv2_model_load: ftype   = 1
-dollyv2_model_load: ggml ctx size = 7374.91 MB
+dollyv2_model_load: ggml ctx lock_size = 7374.91 MB
 dollyv2_model_load: memory_size =   640.00 MB, n_mem = 65536
 dollyv2_model_load: ................................................ done
-dollyv2_model_load: model size =  5295.10 MB / num tensors = 388
+dollyv2_model_load: model lock_size =  5295.10 MB / num tensors = 388
 main: number of tokens in prompt = 32
 main: token[0] =  30003, Below
 main: token[1] =    310,  is
@@ -115,10 +115,10 @@ dollyv2_model_load: n_head  = 32
 dollyv2_model_load: n_layer = 32
 dollyv2_model_load: n_rot   = 20
 dollyv2_model_load: ftype   = 8
-dollyv2_model_load: ggml ctx size = 3902.68 MB
+dollyv2_model_load: ggml ctx lock_size = 3902.68 MB
 dollyv2_model_load: memory_size =   640.00 MB, n_mem = 65536
 dollyv2_model_load: ................................................ done
-dollyv2_model_load: model size =  1822.87 MB / num tensors = 388
+dollyv2_model_load: model lock_size =  1822.87 MB / num tensors = 388
 main: number of tokens in prompt = 32
 main: token[0] =  30003, Below
 main: token[1] =    310,  is
