@@ -762,6 +762,11 @@ extern "C" {
     GGML_API struct ggml_cgraph ggml_build_forward (struct ggml_tensor * tensor);
     GGML_API struct ggml_cgraph ggml_build_backward(struct ggml_context * ctx, struct ggml_cgraph * gf, bool keep);
 
+    GGML_API struct ggml_compute_state * init_thread_pool(int n_threads);
+    GGML_API void stop_thread_pool(struct ggml_compute_state * workers);
+    GGML_API void ggml_graph_compute_with_thread_pool(struct ggml_context * ctx, struct ggml_cgraph * cgraph,
+                                         struct ggml_compute_state * workers);
+
     GGML_API void ggml_graph_compute(struct ggml_context * ctx, struct ggml_cgraph * cgraph);
     GGML_API void ggml_graph_reset  (struct ggml_cgraph * cgraph);
 

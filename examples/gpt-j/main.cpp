@@ -376,6 +376,7 @@ bool gptj_model_load(const std::string & fname, gptj_model & model, gpt_vocab & 
 bool gptj_eval(
         const gptj_model & model,
         const int n_threads,
+        struct ggml_compute_state * thread_pool,
         const int n_past,
         const std::vector<gpt_vocab::id> & embd_inp,
               std::vector<float>         & embd_w,
@@ -576,7 +577,8 @@ bool gptj_eval(
 
     // run the computation
     ggml_build_forward_expand(&gf, inpL);
-    ggml_graph_compute       (ctx0, &gf);
+//    ggml_graph_compute       (ctx0, &gf);
+    ggml_graph_compute_with_thread_pool       (ctx0, &gf, thread_pool);
 
     //if (n_past%100 == 0) {
     //    ggml_graph_print   (&gf);
@@ -662,16 +664,17 @@ int main(int argc, char ** argv) {
 
     std::vector<gpt_vocab::id> embd;
 
+    struct ggml_compute_state * thread_pool = init_thread_pool(params.n_threads);
     // determine the required inference memory per token:
     size_t mem_per_token = 0;
-    gptj_eval(model, params.n_threads, 0, { 0, 1, 2, 3 }, logits, mem_per_token);
+    gptj_eval(model, params.n_threads, thread_pool, 0, { 0, 1, 2, 3 }, logits, mem_per_token);
 
     for (int i = embd.size(); i < embd_inp.size() + params.n_predict; i++) {
         // predict
         if (embd.size() > 0) {
             const int64_t t_start_us = ggml_time_us();
 
-            if (!gptj_eval(model, params.n_threads, n_past, embd, logits, mem_per_token)) {
+            if (!gptj_eval(model, params.n_threads, thread_pool, n_past, embd, logits, mem_per_token)) {
                 printf("Failed to predict\n");
                 return 1;
             }
@@ -724,6 +727,8 @@ int main(int argc, char ** argv) {
             break;
         }
     }
+
+    stop_thread_pool(thread_pool);
 
     // report timing
     {
