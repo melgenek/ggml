@@ -427,9 +427,9 @@ struct gptj_model_loader {
         }
 
         mapping.reset(new gptj_mmap(&file_loader.file));
-//        if (lmlock) {
-//            lmlock->init(mapping->addr);
-//        }
+        if (lmlock) {
+            lmlock->init(mapping->addr);
+        }
 
         size_t done_size = 0;
         for (load_tensor &lt: tensors_map.tensors) {
@@ -440,9 +440,9 @@ struct gptj_model_loader {
 //            print_checksum(lt);
             lt.ggml_tensor->data = lt.data;
             done_size += lt.size;
-//            if (lmlock) {
-//                lmlock->grow_to(done_size);
-//            }
+            if (lmlock) {
+                lmlock->grow_to(done_size);
+            }
         }
         printf("\n");
         fflush(stdout);
@@ -1276,7 +1276,7 @@ int main(int argc, char **argv) {
     std::vector<gpt_vocab::id> embd;
 
     gptj_buffer eval_buf;
-    eval_buf.resize(1280ull * 1024 * 1024);
+    eval_buf.resize(256ull * 1024 * 1024);
 
     // determine the required inference memory per token:
     size_t mem_per_token = 0;
